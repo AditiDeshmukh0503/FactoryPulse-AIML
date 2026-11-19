@@ -138,11 +138,19 @@ st.divider()
 # Model information
 st.header("Model Information")
 
-c1, c2, c3 = st.columns(3)
+st.caption("Random Forest | Test Set Performance")
 
-c1.metric("Algorithm", "Random Forest")
-c2.metric("Test Accuracy", "97.70%")
-c3.metric("Test F1-score", "63.49%")
+c1, c2, c3, c4 = st.columns(4)
+
+c1.metric("Test Accuracy", "97.70%")
+c2.metric("Test Precision", "68.97%")
+c3.metric("Test Recall", "58.82%")
+c4.metric("Test F1-score", "63.49%")
+
+st.info(
+    f"Validation-selected decision threshold: "
+    f"{threshold:.4f} ({threshold * 100:.2f}%)"
+)
 
 st.subheader("Feature Importance")
 
